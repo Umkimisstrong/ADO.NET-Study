@@ -1,0 +1,71 @@
+/* ===============
+    ADO.NET 개요
+=============== */
+
+-- 01. 정의
+       > ADO.NET 은 .NET Framework(닷넷 프레임워크) 프로그래머에게 데이터 액세스
+	 서비스를 노출하는 클래스 집합이다.
+	 ADO.NET 은 분산된 데이터 공유 애플리케이션을 만들기 위한 다양한 구성 요소를
+	 제공한다. 또한 관계형, XML 및 애플리케이션 데이터에 대한 액세스를 제공하는
+	 .NET Framework 의 핵심 부분이다. 
+	 ADO.NET은 애플리케이션, 도구, 언어 또는 인터넷 브라우저에서 사용 되는 중간
+	 계층 비즈니스 개체 및 프런트엔드 데이터베이스 클라이언트 만들기를 포함하여
+	 다양한 개발 요구사항을 지원한다.
+
+-- 02. 개요
+       > ADO.NET 은 OLE DB 및 ODBC 를 통해 노출되는 데이터 소스, SQL Server 및 XML과
+	 같은 데이터 소스에 대한 일관성 있는 액세스를 제공한다. 데이터 공유 소비자
+	 애플리케이션은 ADO.NET 을 통해 이러한 데이터 소스에 연결하여 포함된 데이터를
+	 검색, 처리 및 업데이트 할 수 있다.
+
+         ADO.NET 은 데이터 조작에 따른 데이터 액세스를 각각의 구성 요소로 구분하여 개별
+	 적으로 또는 차례대로 사용할 수 있게 해준다. ADO.NET 에는 데이터베이스에 연결하고
+	 명령을 실행하며 결과를 검색하는데 사용되는 .NET Framework 데이터 공급자가 포함
+	 된다. 검색된 결과는 곧바로 처리되거나 ADO.NET DataSet 개체에 저장되어 특별한 방식
+	 으로 사용자에게 노출되거나 여러 소스의 데이터와 함께 사용되거나 계층 간에 전달된다.
+	 DataSet 개체는 또한 .NET Framework 데이터 공급자를 독립적으로 사용하여 애플리케이션
+	 에 로컬인 데이터 또는 XML 에서 가져온 데이터를 관리할 수 있다.
+
+	 ADO.NET 클래스는 System.Data.dll 에 있으며 System.Xml.dll 에 있는 XML 클래스와 통합
+	 된다. 
+
+	 ADO.NET 은 관리 코드를 작성하는 개발자에게 ADO(ActiveX Data Objects)에서 네이티브
+	 COM(Component Object Model)개발자를 대상으로 제공하는 기능과 유사한 기능을 제공한다.
+	 .NET 애플리케이션에서 데이터에 액세스할 때 ADO 가 아니라 ADO.NET 을 사용하는 것이 좋다.
+
+	 ADO.NET 은 .NET Framework 내에서 가장 직접적인 데이터 액세스 방법을 제공한다.
+
+-- 03. 아키텍처
+       > 기본 구성요소 : .NET Framework 데이터 공급자 / DataSet
+
+       > .NET Framework 데이터 공급자
+	 - 데이터 조작과 정방향 읽기 전용 고속 데이터 액세스를 위해 명시적으로 디자인된 구성 요소
+	 - Connection 개체는 데이터 소스에 대한 연결 제공
+	 - Command 개체는 데이터베이스 명령에 액세스하여 데이터 반환 및 수정, 저장프로시저 실행, 매개 변수 정보를 보내거나 검색 가능
+	 - DataReader는 데이터 소스의 데이터에 대한 고성능 스트림 제공, 
+	 - DataAdapter는 DataSet 개체와 데이터 소스 사이를 연결, Command 개체로 데이터 소스에서 SQL 명령 실행 및 DataSet 을 데이터와
+	   함께 로드하고 DataSet 에 포함된 데이터의 변경 내용을 데이터 소스로 되돌려 조정
+
+       > DataSet
+	 - DataSet 은 데이터 소스에 관계없이 데이터에 액세스 할 수 있도록 명시적으로 디자인 되어있음.
+	 - 애플리케이션에 로컬인 데이터를 관리하기 위해 이를 단독으로 구성하거나 다양한 여러 데이터 소스
+	   또는 XML 데이터와 함께 사용될 수 도 있음.
+	 - 데이터 행과 열로 구성된 하나 이상의 DataTable 개체의 컬렉션 뿐만아니라 DataTable 개체의 데이터에 대한 기본 키, 외래 키,
+	   제약 조건 및 관련 정보가 들어 있음
+
+	 - DataSet
+	   > DataRelationCollection
+	   > ExtendedProperties
+	   > DataTableCollection
+	     - DataTable
+	       > DataRowColleciton
+		 - DataRow
+	       > DataView
+	         - ChildRelations
+		 - ParentRelations
+	         - Constrains
+		 - DataColumnCollection
+		   > DataColumn
+		     - ExtendedProperties
+	         - ExtenedProperties
+	       > PrimaryKey
