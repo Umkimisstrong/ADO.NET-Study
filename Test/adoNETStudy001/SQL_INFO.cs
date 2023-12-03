@@ -10,15 +10,15 @@ namespace adoNETStudy001
     public class SQL_INFO
     {
 
-        public string sqlConnection = string.Empty;
-
+        public string strSqlConnection = string.Empty;
+        public SqlConnection sqlConnection = null;
 
         /// <summary>
         /// 생성자
         /// </summary>
         public SQL_INFO()
         {
-            sqlConnection = "connection";
+            strSqlConnection = "Data Source=DESKTOP-DQ5BA59;Initial Catalog=CENTERO; User ID=local_ksk; Password=rlatkdrl123!;";
         }
 
 
@@ -28,18 +28,22 @@ namespace adoNETStudy001
         /// <param name="strSqlConnection">커넥션 문자열</param>
         public SQL_INFO(string strSqlConnection)
         {
-            this.sqlConnection = strSqlConnection;
+            this.strSqlConnection = strSqlConnection;
         }
 
         public SqlConnection getConnection()
         {
-            SqlConnection connection = null;
+            if(sqlConnection == null)
+            {
+                sqlConnection = new SqlConnection();
+            }
 
             // getting SQL Connection use sqlConnection
 
+            sqlConnection.ConnectionString = this.strSqlConnection;
 
 
-            return connection;
+            return sqlConnection;
         }
 
     }
